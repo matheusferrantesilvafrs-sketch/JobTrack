@@ -27,6 +27,8 @@ while(menu)
              cadastro.cadastrarObservacoes();
              cadastro.cadastrarStatus();
 
+             cadastro.cad();
+
             break;
 
         case "2":

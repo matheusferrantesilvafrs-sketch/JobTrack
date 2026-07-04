@@ -12,3 +12,4 @@ C:\Users\Matheus\Desktop\Férias\Bootcamp GFT\Projetos em C#\JobTracker\obj\Debu
 C:\Users\Matheus\Desktop\Férias\Bootcamp GFT\Projetos em C#\JobTracker\obj\Debug\net10.0\JobTracker.pdb
 C:\Users\Matheus\Desktop\Férias\Bootcamp GFT\Projetos em C#\JobTracker\obj\Debug\net10.0\JobTracker.genruntimeconfig.cache
 C:\Users\Matheus\Desktop\Férias\Bootcamp GFT\Projetos em C#\JobTracker\obj\Debug\net10.0\ref\JobTracker.dll
+C:\Users\Matheus\Desktop\Férias\Bootcamp GFT\Projetos em C#\JobTracker\obj\Debug\net10.0\JobTracker.sourcelink.json
