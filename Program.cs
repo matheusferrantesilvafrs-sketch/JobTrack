@@ -2,8 +2,10 @@
 using JobTracker.Models;
 
 RealizarCadastro cadastro = new RealizarCadastro();
-List<Cadastro> perfilcad = new List<Cadastro>();
 
+AppDbContextFactory factory = new AppDbContextFactory();
+
+AppDbContext context = factory.CreateDbContext(args);
 
 string opcoes = string.Empty;
 
@@ -19,26 +21,58 @@ while(menu)
         case "1":
             Console.WriteLine("Vamos começar o cadastro");
             Console.Clear();
-             cadastro.cadastrarEmpresa();
-             cadastro.cadastrarCargo();
-             cadastro.cadastrarPlataforma();
-             cadastro.DataCandidatura();
-             cadastro.cadastrarLink();
-             cadastro.cadastrarObservacoes();
-             cadastro.cadastrarStatus();
-
-             cadastro.cad();
-
+            Cadastro novoCadastro = cadastro.cad();
+            context.Cadastros.Add(novoCadastro);
+            context.SaveChanges();
             break;
 
         case "2":
             Console.WriteLine("O seus cadastros estão...");
-            Console.WriteLine(perfilcad);
+            foreach (Cadastro item in context.Cadastros)
+                {
+                    Console.WriteLine($"Id: {item.Id} \nEmpresa: {item.Empresa} \nCargo: {item.Cargo} \nPlataforma: {item.Plataforma} \nStatus: {item.Status} \nData: {item.DataCandidatura:d} \nLink: {item.Link} \nObservações: {item.Observacoes}");
+                }
             break;
 
         case "3":
             Console.WriteLine("Qual cadastro você deseja excluir?");
+            int ID = Convert.ToInt32(Console.ReadLine());
+
+            Cadastro cadastroEncontrado = null;
+
+            foreach (Cadastro item in context.Cadastros)
+            {
+                if (ID == item.Id)
+                {
+                    cadastroEncontrado = item;
+                    break;
+                }
+            }
+
+            if (cadastroEncontrado == null)
+            {
+                Console.WriteLine("Cadastro não encontrado.");
+                break;
+            }
+
+             Console.WriteLine("Você tem certeza que deseja excluir esse cadastro?");
+             Console.WriteLine($"Id: {cadastroEncontrado.Id} \nEmpresa: {cadastroEncontrado.Empresa} \nCargo: {cadastroEncontrado.Cargo} \nPlataforma: {cadastroEncontrado.Plataforma} \nStatus: {cadastroEncontrado.Status} \nData: {cadastroEncontrado.DataCandidatura:d} \nLink: {cadastroEncontrado.Link} \nObservações: {cadastroEncontrado.Observacoes}");
+             Console.WriteLine("Digite S para confirmar ou N para cancelar:");
+
+             string opcao = Console.ReadLine().ToUpper();
+
+            if (opcao == "S")
+            {
+                context.Cadastros.Remove(cadastroEncontrado);
+                context.SaveChanges();
+                Console.WriteLine("Cadastro excluído com sucesso.");
+            }
+            else
+            {
+                Console.WriteLine("Exclusão cancelada.");
+            }
             break;
+        
 
         case "4":
             Console.WriteLine("Obrigado por usar o sistema :) ");
@@ -53,3 +87,4 @@ while(menu)
     Console.WriteLine("Pressione alguma tecla para continuar");
     Console.ReadLine();
 }
+

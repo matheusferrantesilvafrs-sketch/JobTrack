@@ -5,8 +5,10 @@ using System.Threading.Tasks;
 
 namespace JobTracker.Models
 {
+    
     public class Cadastro
     {
+        public int Id {get; set;}
         public string Empresa {set; get;}
 
         public string Cargo {set; get;}
@@ -18,6 +20,8 @@ namespace JobTracker.Models
         public string Link {set; get;}
 
         public string Observacoes {set; get;}
+
+
         
     }
 }
