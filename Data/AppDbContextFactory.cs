@@ -7,13 +7,14 @@ public class AppDbContextFactory : IDesignTimeDbContextFactory<AppDbContext>
     {
         var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
 
-        var connectionString = "server=localhost;user=root;password=#Ma29032008*;database=jobtracker;port=3306;";
+        var connectionString = "server=localhost;user=root;password=...;database=jobtracker;port=3306;";
 
-        optionsBuilder.UseMySql(
+        optionsBuilder.UseMySql
+        (
             connectionString,
             ServerVersion.AutoDetect(connectionString)
         );
-        
+
         return new AppDbContext(optionsBuilder.Options);
     }
 }
