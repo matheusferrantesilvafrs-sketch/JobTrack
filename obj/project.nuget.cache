@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GYDEhyuIOI4=",
+  "dgSpecHash": "u24/eEA40VY=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Matheus\\Desktop\\Férias\\Bootcamp GFT\\Projetos em C#\\JobTracker\\JobTracker.csproj",
+  "projectFilePath": "C:\\Users\\Matheus\\Desktop\\Férias\\Bootcamp GFT\\Projetos em C#\\Ver\\JobTracker\\JobTracker.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Matheus\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Matheus\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",

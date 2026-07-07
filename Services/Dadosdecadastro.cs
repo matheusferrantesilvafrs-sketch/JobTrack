@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace JobTracker.Models
 {
-    public class RealizarCadastro
+    public class Dadosdecadastro
     {      
               
         public Cadastro cad()

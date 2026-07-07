@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Matheus\\Desktop\\Férias\\Bootcamp GFT\\Projetos em C#\\JobTracker\\JobTracker.csproj": {}
+    "C:\\Users\\Matheus\\Desktop\\Férias\\Bootcamp GFT\\Projetos em C#\\Ver\\JobTracker\\JobTracker.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Matheus\\Desktop\\Férias\\Bootcamp GFT\\Projetos em C#\\JobTracker\\JobTracker.csproj": {
+    "C:\\Users\\Matheus\\Desktop\\Férias\\Bootcamp GFT\\Projetos em C#\\Ver\\JobTracker\\JobTracker.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Matheus\\Desktop\\Férias\\Bootcamp GFT\\Projetos em C#\\JobTracker\\JobTracker.csproj",
+        "projectUniqueName": "C:\\Users\\Matheus\\Desktop\\Férias\\Bootcamp GFT\\Projetos em C#\\Ver\\JobTracker\\JobTracker.csproj",
         "projectName": "JobTracker",
-        "projectPath": "C:\\Users\\Matheus\\Desktop\\Férias\\Bootcamp GFT\\Projetos em C#\\JobTracker\\JobTracker.csproj",
+        "projectPath": "C:\\Users\\Matheus\\Desktop\\Férias\\Bootcamp GFT\\Projetos em C#\\Ver\\JobTracker\\JobTracker.csproj",
         "packagesPath": "C:\\Users\\Matheus\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Matheus\\Desktop\\Férias\\Bootcamp GFT\\Projetos em C#\\JobTracker\\obj\\",
+        "outputPath": "C:\\Users\\Matheus\\Desktop\\Férias\\Bootcamp GFT\\Projetos em C#\\Ver\\JobTracker\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Matheus\\AppData\\Roaming\\NuGet\\NuGet.Config"
