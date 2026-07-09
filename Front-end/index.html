@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <title>Front-End do Jobtracker</title>
+    
+</head>
+
+<body>
+
+    <main class="main-wrap">
+        <header class = "main-head">
+            <div class="Bolhas-sidebar">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="main-nav">
+                <nav class="navbar">
+                    <div class="navbar-nav">
+                        <div class="title">
+                            <h3>
+                                <i class="bx bxs-briefcase-alt-2"></i>
+                                <span class="title-text">Jobtracker</span>
+                            </h3>
+                        </div>
+                    <ul class="nav-list">
+                        <section id="func1" class="tab-content active">
+                            <li class="nav-list-item">
+                                <button class="nav-btn" data-target="event1">
+                                    <a href="#" class="nav-link">
+                                        <i class="bx bxs-dashboard"></i>
+                                        <span class="link-text">Dashboard</span>   
+                                    </a>
+                                </button>
+                            </li>
+                        </section>
+
+                        <section id="func2" class="tab-content active">
+                            <li class="nav-list-item">
+                                <button class="nav-btn" data-target="event2">
+                                    <a href="#" class="nav-link">
+                                        <i class="bx bx-user"></i>
+                                        <span class="link-text">Cadastro</span>
+                                    </a>
+                                </button>
+                            </li>
+                        </section>
+
+                        <section id="func3" class="tab-content active">
+                            <li class="nav-list-item">
+                                <button class="nav-btn" data-target="event3">
+                                    <a href="#" class="nav-link">
+                                        <i class="bx bx-briefcase"></i>
+                                        <span class="link-text">Entrevista</span>
+                                    </a>
+                                </button>
+                            </li>
+                        </section>
+
+                        <section id="func4" class="tab-content active">
+                            <li class="nav-list-item">
+                                <button class="nav-btn" data-target="event4">
+                                    <a href="#" class="nav-link">
+                                        <i class="bx bx-calendar"></i>
+                                        <span class="link-text">Caledário</span>
+                                    </a>
+                                </button>
+                            </li>
+                        </section>
+
+                        <section id="func5" class="tab-content active">
+                            <li class="nav-list-item">
+                                <button class="nav-btn" data-target="event5">
+                                    <a href="#" class="nav-link">
+                                        <i class="bx bx-message-square-detail"></i>
+                                        <span class="link-text">Feedbacks</span>
+                                    </a>
+                                </button>
+                            </li>
+                        </section>
+
+                        <section id="func6" class="tab-content active">
+                            <li class="nav-list-item">
+                                <button class="nav-btn" data-target="event6">
+                                    <a href="#" class="nav-link">
+                                        <i class="bx bx-bulb"></i>
+                                        <span class="link-text">Sugestões</span>
+                                    </a>
+                                </button>
+                            </li>
+                        </section>
+
+                    </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <section class="showcase">
+            <div class="overlay">
+                <div class="head">
+                <button class="toggler">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA4klEQVR4AdyUgQ3CMAwEDZPAJjAZYhJWYRPYBP5QLaVu0lhFlapWdht93vnEH/VoKz/7E7ioYy/lJ5Hw4Ivajtiim6gnZSbgPXrEKOA7Oqiwl6IYIjb3RIE57qK5TQjQNgyNxvuJShwefJ+zzAn+Mj4j4DuKpvsuSxxsZHxGgKLFuT+B59CL8mYMkJUYY3DnM65mbNFdrG6ROMRbL/j6tCMKsPhV9HgzBFmJMT4LhK9PO6JAm7lwZhMC3gaM7SXndD7j1K8CI0dFv8r6a2J8pkUsHo3H5FpOjM8I1PeaRFcX+AIAAP//EM5ZqQAAAAZJREFUAwDyWTQxE5RTsAAAAABJRU5ErkJggg=="/>
+                </button>
+                </div>
+                <div class="content">
+                    <div class="welcome">
+                        <div class="content-text">
+                            <h3>Bem-vindo ao Jobtracker</h3>
+                            <p>Uma aplicação web pensada para auxiliar a organizar sua vida profissional</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="Box"></div>
+        </section>
+        <template id="Cadastro">
+            <div class="Box-cad">
+                <div class="Bolhas">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <div class="campo-cadastro">
+                    <label for="Empresa">Nome da empresa:</label>
+                    <input type="text" id="Empresa" name="Empresa" required>
+                </div>
+
+                <div class="campo-cadastro">
+                    <label for="Cargo">Cargo:</label>
+                    <input type="text" id="Cargo" name="Cargo" required>
+                </div>
+
+                <div class="campo-cadastro">
+                    <label for="Plataforma">Plataforma:</label>
+                    <input type="text" id="Plataforma" name="Plataforma" required>
+                </div>
+
+                <div class="campo-cadastro">
+                    <label for="Data">Data da candidatura:</label>
+                    <input type="text" id="Data" name="Data" required>
+                </div>
+
+                <div class="campo-cadastro">
+                    <label for="Link">Link da vaga:</label>
+                    <input type="text" id="Link" name="Link" required>
+                </div>
+
+                <div class="campo-cadastro">
+                    <label for="Obs">Observações:</label>
+                    <input type="text" id="Obs" name="Obs" required>
+                </div>
+
+                <div class="campo-cadastro">
+                    <label for="Status">Status:</label>
+                    <input type="text" id="Status" name="Status" required>
+                </div>
+
+                <div class="campo-cadastro">
+                    <button type="bot" onclick="(Cadastro)">Cadastrar</button>
+                </div>
+            </div>
+        </template>
+
+    </main>
+
+    <script src="./app.js"></script>
+
+</body>
+
+</html>
