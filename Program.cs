@@ -1,48 +1,80 @@
-﻿using System.Data;
-using JobTracker.Models;
+﻿using JobTracker.Models;
+using Microsoft.EntityFrameworkCore;
 
-Realizarcadastro realizarcad = new Realizarcadastro();
+var builder = WebApplication.CreateBuilder(args);
 
-bool menu = true;
-while(menu)
+string? connectionString =
+    builder.Configuration.GetConnectionString("DefaultConnection");
+
+if (string.IsNullOrWhiteSpace(connectionString))
 {
-    Console.Clear();
-    Console.WriteLine("Bem-vindo ao sistema de JobTrack, o que você gostaria para hoje?");
-    Console.WriteLine("1 - Cadastrar \n2 - Consultar cadastros \n3 - Excluir cadastro \n4 - Editar cadastro \n5 - Sair");
-
-    switch (Console.ReadLine())
-    {
-        case "1":
-            realizarcad.realizarcad();
-            break;
-
-
-        case "2":
-            realizarcad.mostrarcads();
-            break;
-
-
-        case "3":
-            realizarcad.escluircads();
-            break;
-        
-
-        case "4":
-            realizarcad.editarcad();
-            break;
-
-        case "5":
-            realizarcad.sair();
-            menu = false;
-            break;
-
-
-        default:
-            Console.WriteLine("Opção inválida");
-            break;
-    }
-
-    Console.WriteLine("Pressione alguma tecla para continuar");
-    Console.ReadLine();
+    throw new InvalidOperationException(
+        "A ConnectionString 'DefaultConnection' não foi encontrada."
+    );
 }
 
+builder.Services.AddDbContext<AppDbContext>(options =>
+{
+    options.UseMySql(
+        connectionString,
+        ServerVersion.AutoDetect(connectionString)
+    );
+});
+
+var app = builder.Build();
+
+app.UseDefaultFiles();
+app.UseStaticFiles();
+
+app.MapGet("/dadoscad", async (AppDbContext banco) =>
+{
+    List<PostDados> cadastros = await banco.Cadastro
+        .AsNoTracking()
+        .ToListAsync();
+
+    return Results.Ok(cadastros);
+});
+
+app.MapPost("/dadoscad", async (
+    PostDados novoCadastro,
+    AppDbContext banco) =>
+{
+    if (string.IsNullOrWhiteSpace(novoCadastro.Empresa))
+    {
+        return Results.BadRequest(
+            new { mensagem = "O nome da empresa é obrigatório." }
+        );
+    }
+
+    if (string.IsNullOrWhiteSpace(novoCadastro.Cargo))
+    {
+        return Results.BadRequest(
+            new { mensagem = "O cargo é obrigatório." }
+        );
+    }
+
+    if (string.IsNullOrWhiteSpace(novoCadastro.Descricoes))
+    {
+        return Results.BadRequest(
+            new { mensagem = "A descrição é obrigatória." }
+        );
+    }
+
+    if (novoCadastro.Data == default)
+    {
+        return Results.BadRequest(
+            new { mensagem = "A data da candidatura é obrigatória." }
+        );
+    }
+
+    banco.Cadastro.Add(novoCadastro);
+
+    await banco.SaveChangesAsync();
+
+    return Results.Created(
+        $"/dadoscad/{novoCadastro.ID}",
+        novoCadastro
+    );
+});
+
+app.Run();

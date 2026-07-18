@@ -21,38 +21,30 @@ namespace JobTracker.Migrations
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
-            modelBuilder.Entity("JobTracker.Models.Cadastro", b =>
+            modelBuilder.Entity("JobTracker.Models.PostDados", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("ID"));
 
                     b.Property<string>("Cargo")
                         .HasColumnType("longtext");
 
-                    b.Property<DateTime>("DataCandidatura")
+                    b.Property<DateTime>("Data")
                         .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Descrições")
+                        .HasColumnType("longtext")
+                        .HasAnnotation("Relational:JsonPropertyName", "descricoes");
 
                     b.Property<string>("Empresa")
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Link")
-                        .HasColumnType("longtext");
+                    b.HasKey("ID");
 
-                    b.Property<string>("Observacoes")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Plataforma")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Status")
-                        .HasColumnType("longtext");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Cadastros");
+                    b.ToTable("Cadastro");
                 });
 #pragma warning restore 612, 618
         }
