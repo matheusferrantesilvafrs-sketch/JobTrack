@@ -11,5 +11,11 @@ namespace JobTracker.Models
         public DateTime Data { get; set; }
 
         public string Descricoes { get; set; } = string.Empty;
+
+        public string Link { get; set; } = string.Empty;
+
+        public string Status { get; set; } = string.Empty;
+
+        public string Plataforma { get; set; } = string.Empty;
     }
 }

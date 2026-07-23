@@ -20,6 +20,11 @@
     >
 
     <link
+        rel="stylesheet"
+        href="./Cadstyle.css"
+    >
+
+    <link
         href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
         rel="stylesheet"
     >
@@ -281,71 +286,77 @@
                     </div>
 
                     <div class="campo-cadastro">
-
-                        <label for="Empresa">
-                            Nome da empresa:
-                        </label>
-
+                        <label for="Empresa">Nome da empresa:</label>
                         <input
                             type="text"
                             id="Empresa"
                             name="Empresa"
                             required
                         >
-
                     </div>
 
                     <div class="campo-cadastro">
-
-                        <label for="Cargo">
-                            Cargo:
-                        </label>
-
+                        <label for="Cargo">Cargo:</label>
                         <input
                             type="text"
                             id="Cargo"
                             name="Cargo"
                             required
                         >
-
                     </div>
 
                     <div class="campo-cadastro">
-
-                        <label for="Data">
-                            Data da candidatura:
-                        </label>
-
+                        <label for="Data">Data da candidatura:</label>
                         <input
                             type="date"
                             id="Data"
                             name="Data"
                             required
                         >
-
                     </div>
 
                     <div class="campo-cadastro">
-
-                        <label for="Descricoes">
-                            Descrição:
-                        </label>
-
+                        <label for="Descricoes">Descrição:</label>
                         <input
                             type="text"
                             id="Descricoes"
                             name="Descricoes"
                             required
                         >
-
                     </div>
 
                     <div class="campo-cadastro">
+                        <label for="Plataforma">Plataforma:</label>
+                        <input
+                            type="text"
+                            id="Plataforma"
+                            name="Plataforma"
+                            required
+                        >
+                    </div>
 
-                        <button type="submit">
-                            Cadastrar
-                        </button>
+                    <div class="campo-cadastro">
+                        <label for="Link">Link da candidatura:</label>
+                        <input
+                            type="url"
+                            id="Link"
+                            name="Link"
+                            required
+                        >
+                    </div>
 
+                    <div class="campo-cadastro">
+                        <label for="Status">Status da candidatura:</label>
+                        <input
+                            type="text"
+                            id="Status"
+                            name="Status"
+                            required
+                        >
+                    </div>
+
+                    <div class="campo-cadastro">
+                        <button type="submit">Cadastrar</button>
                     </div>
 
                 </form>
@@ -363,6 +374,7 @@
                             <input
                                 type="text"
                                 class="search"
+                                id="campoBusca"
                                 placeholder="Buscar..."
                             >
 
@@ -371,43 +383,87 @@
 
                         <div id="listaCadastros"></div>
 
-                        <div class="painel-cadastros">
-                            <i class="bx bx-search"></i>
-
-                            <div class="empresa-cad">
-                                <p>Empresa:</p>
-                            </div>
-
-                            <div class="cargo-cad">
-                                <p>Cargo:</p>
-                            </div>
-
-                            <div class="data-cad">
-                                <p>Data:</p>
-                            </div>
-
-                            <div class="descrição-cad">
-                                <p>Descrição:</p>
-                            </div>
-
-                            <button type="Edit">
-                                Editar
-                            </button>
-
-                            <button type="Exc">
-                                Excluir
-                            </button>
-
-                        </div>
                     </div>
+
                 </div>
+
             </div>
+
+        </template>
+
+        <template id="modeloCadastro">
+
+            <article class="painel-cadastros">
+
+                <div class="cadastro-cabecalho">
+
+                    <div class="cabecalho-esquerda">
+                        <h3 class="empresa-cad"></h3>
+                        <p class="cargo-cad"></p>
+                    </div>
+
+                    <span class="status-cad"></span>
+
+                </div>
+
+                <div class="cadastro-info">
+
+                    <div class="plataforma-cad">
+                        <i class="bx bx-briefcase"></i>
+                        <span></span>
+                    </div>
+
+                    <div class="data-cad">
+                        <i class="bx bx-calendar"></i>
+                        <span></span>
+                    </div>
+
+                </div>
+
+                <p class="descricao-cad"></p>
+
+                <div class="cadastro-rodape">
+
+                    <a
+                        class="link-cad"
+                        href="#"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <i class="bx bx-link-alt"></i>
+                        Abrir vaga
+                    </a>
+
+                    <div class="acoes-cad">
+
+                        <button
+                            class="btn-editar"
+                            type="button"
+                            aria-label="Editar candidatura"
+                        >
+                            <i class="bx bx-pencil"></i>
+                        </button>
+
+                        <button
+                            class="btn-excluir"
+                            type="button"
+                            aria-label="Excluir candidatura"
+                        >
+                            <i class="bx bx-trash"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
 
         </template>
 
     </main>
 
     <script src="./app.js"></script>
+    <script src="./Cadback.js"></script>
 
 </body>
 

@@ -35,11 +35,19 @@ namespace JobTracker.Migrations
                     b.Property<DateTime>("Data")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<string>("Descrições")
-                        .HasColumnType("longtext")
-                        .HasAnnotation("Relational:JsonPropertyName", "descricoes");
+                    b.Property<string>("Descricoes")
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Empresa")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Link")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Plataforma")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Status")
                         .HasColumnType("longtext");
 
                     b.HasKey("ID");

@@ -60,6 +60,27 @@ app.MapPost("/dadoscad", async (
         );
     }
 
+    if (string.IsNullOrWhiteSpace(novoCadastro.Plataforma))
+    {
+        return Results.BadRequest(
+            new { mensagem = "A Plataforma é obrigatória." }
+        );
+    }
+
+    if (string.IsNullOrWhiteSpace(novoCadastro.Link))
+    {
+        return Results.BadRequest(
+            new { mensagem = "O Link é obrigatória." }
+        );
+    }
+
+    if (string.IsNullOrWhiteSpace(novoCadastro.Status))
+    {
+        return Results.BadRequest(
+            new { mensagem = "Os Status são obrigatórios." }
+        );
+    }
+
     if (novoCadastro.Data == default)
     {
         return Results.BadRequest(
@@ -75,6 +96,82 @@ app.MapPost("/dadoscad", async (
         $"/dadoscad/{novoCadastro.ID}",
         novoCadastro
     );
+});
+
+app.MapDelete("/dadoscad/{id:int}", async (
+    int id,
+    AppDbContext banco) =>
+{
+    PostDados? candidatura =
+        await banco.Cadastro.FindAsync(id);
+
+    if (candidatura is null)
+    {
+        return Results.NotFound(
+            new
+            {
+                mensagem = "Candidatura não encontrada."
+            }
+        );
+    }
+
+    banco.Cadastro.Remove(candidatura);
+
+    await banco.SaveChangesAsync();
+
+    return Results.Ok(
+        new
+        {
+            mensagem = "Candidatura excluída com sucesso."
+        }
+    );
+});
+
+app.MapPut("/dadoscad/{id:int}", async (
+    int id,
+    PostDados dadosAtualizados,
+    AppDbContext banco) =>
+{
+    PostDados? candidatura =
+        await banco.Cadastro
+            .FirstOrDefaultAsync(cadastro =>
+                cadastro.ID == id
+            );
+
+    if (candidatura is null)
+    {
+        return Results.NotFound(
+            new
+            {
+                mensagem = "Candidatura não encontrada."
+            }
+        );
+    }
+
+    candidatura.Empresa =
+        dadosAtualizados.Empresa;
+
+    candidatura.Cargo =
+        dadosAtualizados.Cargo;
+
+    candidatura.Data =
+        dadosAtualizados.Data;
+
+    candidatura.Descricoes =
+        dadosAtualizados.Descricoes;
+
+    candidatura.Plataforma =
+        dadosAtualizados.Plataforma;
+
+    candidatura.Link =
+        dadosAtualizados.Link;
+
+    candidatura.Status =
+        dadosAtualizados.Status;
+
+    await banco.SaveChangesAsync();
+
+    return Results.Ok(candidatura);
 });
 
 app.Run();
